@@ -36,7 +36,7 @@ CREATE TABLE components (
     component_type VARCHAR(50) NOT NULL, -- Ex: 'CPU', 'RAM', 'SSD', 'GPU'
     manufacturer VARCHAR(50),
     model_number VARCHAR(100) NOT NULL,
-    capacity VARCHAR(50), -- Ex: '16GB', '1TB', 'Ryzen 7'
+    details VARCHAR(50), -- Ex: '16GB', '1TB', 'Ryzen 7'
     UNIQUE (component_type, model_number)
 );
 

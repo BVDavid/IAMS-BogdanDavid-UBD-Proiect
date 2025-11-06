@@ -1,0 +1,33 @@
+services:
+  # SERVICIUL 1: Baza de Date PostgreSQL (UBD)
+  db:
+    image: postgres:15-alpine
+    container_name: iams_db
+    restart: always
+    environment:
+      POSTGRES_USER: ubd_user
+      POSTGRES_PASSWORD: ubd_password
+      POSTGRES_DB: inventory_db
+    ports:
+      - "5432:5432" # Acces extern pentru instrumente GUI (DBeaver)
+    volumes:
+      # Volum Persistent (Sys Admin! - datele nu se pierd)
+      - pgdata:/var/lib/postgresql/data
+      # Initializare DB cu scripturile tale SQL
+      - ./init-scripts:/docker-entrypoint-initdb.d 
+
+  # SERVICIUL 2: Aplicatia Web Backend (Logica)
+  backend:
+    build: . # Foloseste Dockerfile-ul din directorul curent
+    container_name: iams_backend
+    ports:
+      - "5000:5000" # Acces la aplicatia web
+    environment:
+      # String de conectare la baza de date (foloseste numele serviciului 'db')
+      DATABASE_URL: postgresql://ubd_user:ubd_password@db:5432/inventory_db
+    # Asigura ca DB-ul e gata inainte de a porni aplicatia
+    depends_on:
+      - db
+
+volumes:
+  pgdata: # Definirea volumului numit pentru persistenta DB
