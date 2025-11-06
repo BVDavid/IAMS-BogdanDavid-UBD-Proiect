@@ -1,0 +1,7 @@
+
+# Docker data persistence
+pgdata/
+# Python environment
+vnev/
+__pycache__/
+
