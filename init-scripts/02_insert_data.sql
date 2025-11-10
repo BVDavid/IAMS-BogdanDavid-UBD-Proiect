@@ -1,12 +1,12 @@
 -- ##################################################################
--- ##### INSERARE DATE INITIALE (INVENTAR PERSONAL) #####
+-- ##### INSERT INITIAL DATA (PERSONAL INVENTORY) #####
 -- ##################################################################
 
--- Ordinea este importanta din cauza cheilor straine (Foreign Keys)!
--- 1. locations, users, components (nu au dependente)
--- 2. assets (depinde de locations si users)
--- 3. asset_components (depinde de assets si components)
--- 4. maintenance_log (depinde de assets si users)
+-- Order is  important  because of  Foreign Keys!
+-- 1. locations, users, components (no dependencies)
+-- 2. assets (depends on locations and users)
+-- 3. asset_components (depends on assets and components)
+-- 4. maintenance_log (depends on assets and users)
 
 --- 1. LOCATIONS (Physical) ---
 INSERT INTO locations (room_name, building, description) VALUES
@@ -35,7 +35,7 @@ INSERT INTO components (component_type, manufacturer, model_number, details) VAL
 ('SSD', 'Kingston', 'NV3', '500GB M.2 NVMe SSD'),
 ---------------------SERVER PC----------------------------
 ('CPU', 'Intel', 'Core i3-7100T', '2 Cores 4 Threads');
--- are un SSD A400 dar este deja introdus----
+-- it has an  SSD A400 but it's already in the table ----
 
 
 --- 4. ASSETS (My equipment) ---
