@@ -1,98 +1,37 @@
-# Proiect-UBD
-# 🧩 Cerințe pentru realizarea proiectului
+# 📦 IAMS - Inventory & Asset Management System
 
-## 📘 Descriere generală
+Proiect realizat pentru disciplina **Utilizarea Bazelor de Date (UBD)**.
 
-Fiecare student va realiza **un proiect individual**, care constă în dezvoltarea unei **aplicații funcționale** și redactarea unei **lucrări (referat)** asociate.  
-Scopul proiectului este de a aplica cunoștințele teoretice în dezvoltarea unei aplicații software reale, cu accent pe analiză, proiectare și implementare.
+**IAMS** este o aplicație web completă pentru gestionarea inventarului IT (calculatoare, laptopuri, servere) și a componentelor hardware asociate. Aplicația demonstrează utilizarea unei baze de date relaționale complexe (PostgreSQL), containerizare (Docker) și o interfață web intuitivă (Flask + Bootstrap).
 
 ---
 
-## 🧠 Alegerea temei
+## 🚀 Funcționalități Principale
 
-- Studentul va **alege o temă** din lista propusă sau poate propune **o temă proprie**.
-- Tema se va **înregistra la orele de proiect**, unde se va discuta și **precizarea detaliată a cerințelor**.
-- Alegerea temei trebuie validată de profesor.
-
----
-
-## 🧩 Conținutul proiectului
-
-Proiectul are două componente obligatorii:
-
-### (A) Aplicația funcțională
-Aplicația va fi complet funcțională și va respecta următoarele cerințe:
-- Va avea **o interfață grafică intuitivă** și ușor de utilizat;
-- Va fi implementată folosind tehnologiile și principiile predate la curs;
-- Va demonstra în mod clar **funcționalitatea cerută de tema aleasă**.
-
-### (B) Lucrarea (referatul)
-Lucrarea care însoțește aplicația trebuie să conțină:
-
-1. **Analiza și specificarea cerințelor**  
-   - Descrierea scopului aplicației și a funcționalităților principale.  
-   - Modelarea datelor prin **diagrame Entitate–Relație (ERD)**.
-
-2. **Proiectarea și implementarea aplicației**  
-   - Arhitectura generală a sistemului.  
-   - Tehnologii și limbaje folosite.  
-   - Capturi de ecran, exemple de interfață.
-
-3. **Prezentarea aplicației folosind diagrame**  
-   - Diagrame de flux, diagrame de clase, cazuri de utilizare etc.  
-   - Explicarea logicii de funcționare.
-
-4. **Descrierea și interpretarea rezultatelor obținute**  
-   - Exemple de scenarii de utilizare.  
-   - Observații și concluzii privind funcționarea aplicației.
+1.  **Gestiunea Echipamentelor (CRUD):** Adăugare, vizualizare, filtrare și ștergere echipamente.
+2.  **Componente Hardware (Relație Many-to-Many):** Asocierea și dezasocierea componentelor (CPU, RAM, HDD) de pe un echipament specific.
+3.  **Autentificare și Roluri:**
+    * **Admin:** Are drepturi depline (poate șterge orice, poate adăuga echipamente pentru alți utilizatori).
+    * **User:** Poate vedea tot inventarul, dar poate modifica/șterge *doar* echipamentele proprii.
+4.  **Validarea Datelor:** Protecție împotriva datelor invalide (format IP, Hostname, Serial Number unic).
+5.  **Filtrare Avansată:** Filtrarea echipamentelor în funcție de locația fizică (Room, Server Room, etc.).
 
 ---
 
-## 📊 Punctarea proiectului (maxim 10 puncte)
+## 🛠️ Cerințe Preliminare (Prerequisites)
 
-| Criteriu | Punctaj maxim | Descriere |
-|-----------|----------------|------------|
-| 🧩 **Proiectarea bazei de date** | **2p** | Modelarea corectă a bazei de date, definirea entităților și relațiilor conform cerințelor aplicației. |
-| 📘 **Documentația teoretică** | **3p** | Prezentarea tehnologiilor utilizate, rolul acestora în implementare, motivarea alegerilor făcute, descrierea funcționalităților aplicației și modul de implementare. |
-| 💻 **Prezentarea aplicației** | **3p** | Demonstrarea funcționalităților în cadrul susținerii publice; se vor prezenta rapoarte, teste efectuate și grafice relevante. |
-| 🗣️ **Modul de prezentare și răspunsurile la întrebări** | **2p** | Claritatea prezentării, capacitatea de a explica deciziile tehnice și de a răspunde corect la întrebările adresate. |
+Pentru a rula acest proiect, ai nevoie doar de **Docker** instalat.
 
-> 🔹 **Total: 10 puncte**
+* **Docker Desktop** (Windows/Mac) sau **Docker Engine** (Linux).
+* **Git** (pentru a descărca proiectul).
 
----
-
-## 🕓 Termene și prezentare
-
-- **Predarea proiectului:** în **ultima săptămână de școală din semestrul I** al anului universitar curent.
-- Proiectele se pot preda și **în sesiunea de restanțe**, dacă nu au fost finalizate până la termenul inițial.
-- **Consultațiile și discuțiile** privind proiectele se desfășoară la **orele de proiect afișate în orar**.
-
----
-
-## ⚠️ Condiții obligatorii
-
-1. **Prezentarea progresului pe parcursul semestrului** este obligatorie.  
-   Lipsa prezentării evoluției lucrului la proiect duce la neacceptarea acestuia.
-2. **Aplicația trebuie să fie funcțională.**
-3. **Referatul trebuie să fie complet și corect redactat.**
-
----
-
-
-## 💡 Recomandări
-
-- Folosește Git și GitHub pentru a urmări evoluția proiectului.  
-  Creează commit-uri regulate și scrie mesaje descriptive.
-- Poți folosi diagrame realizate cu instrumente precum **draw.io**, **Lucidchart**, **Figma**, etc.
-- Testează aplicația înainte de predare și documentează eventualele limitări cunoscute.
-
----
-
-## ✅ Ce se predă la final
-
-La finalul semestrului, studentul va preda:
-1. 🔹 Codul sursă complet al aplicației (în repository-ul GitHub);
-2. 🔹 Documentația (referatul);
-3. 🔹 O prezentare scurtă a proiectului.
-
----
+Verifică dacă ai Docker instalat rulând în terminal:
+```bash
+docker --version
+docker compose version
+⚙️ Instalare și RulareUrmează acești pași simpli pentru a porni aplicația în câteva minute:1. Clonează RepozitoriulDeschide un terminal și descarcă proiectul:Bashgit clone [https://github.com/BVDavid/IAMS-BogdanDavid-UBD-Proiect.git](https://github.com/BVDavid/IAMS-BogdanDavid-UBD-Proiect.git)
+cd IAMS-BogdanDavid-UBD-Proiect
+2. Pornește Aplicația (Build & Run)Rulează comanda de mai jos pentru a construi imaginile și a porni containerele:Bashdocker compose up -d --build
+Notă: Prima rulare poate dura 1-2 minute pentru a descărca imaginile de Python și PostgreSQL.3. Accesează AplicațiaDeschide browserul și navighează la:👉 http://localhost:5000🔐 Credențiale de Acces (Login)Baza de date este populată automat cu doi utilizatori pentru testare:RolEmailParolaDrepturiADMIN 👑bogdandavid.work@gmail.comadmin123Acces Total (Adăugare/Ștergere orice).USER 👤user@test.comuser123Read-Only pe alții, Full Access pe propriile asset-uri.🧪 Ghid de Testare (Scenarii)Pentru a evalua funcționalitățile proiectului, parcurgeți următoarele scenarii:Scenariul 1: Administrare Completă (Login ca Admin)Loghează-te cu contul de Admin.Apasă "Adaugă Echipament". Completează datele (alege un User diferit din listă).Observă validările: Încearcă să pui un IP greșit (ex: 999.999.999) -> Vei primi eroare.După salvare, intră la Detalii pe echipamentul creat.Folosește formularul din stânga pentru a asocia o componentă (ex: un CPU).Componenta apare în tabelul din dreapta. Apasă pe X roșu pentru a o șterge.Mergi în Dashboard și șterge echipamentul folosind butonul Gunoi.Scenariul 2: Restricții User (Login ca User)Dă Logout și loghează-te cu contul de User.În Dashboard, vei observa că NU poți șterge echipamentele care aparțin lui "David Bogdan" (nu apare butonul de ștergere).Adaugă un echipament nou. Vei observa că nu poți alege proprietarul (ești asignat automat).Intră la Detalii pe un echipament al Adminului -> Vei primi mesajul "Acces Interzis".Scenariul 3: FiltrareÎn Dashboard, selectează din dropdown "Server Room" și apasă Aplică.Lista se va actualiza afișând doar serverele din acea cameră.📂 Structura Proiectuluidocker-compose.yml: Fișierul principal de orchestrare. Definește serviciile db (PostgreSQL) și backend (Flask).Dockerfile: Instrucțiunile pentru construirea imaginii aplicației Python.init-scripts/:01_create_tables.sql: Crearea structurii bazei de date (DDL).02_insert_data.sql: Popularea inițială cu date de test (DML).app/:app.py: Logica backend (rute, conexiune DB, validări).templates/: Fișierele HTML (Frontend cu Bootstrap).❓ Troubleshooting (Probleme Comune)Q: Primesc eroare la pornire sau baza de date pare goală.R: Dacă ai rulat proiectul anterior cu o schemă veche, Docker poate păstra volumul vechi. Resetează totul cu comanda:Bashdocker compose down -v
+docker compose up -d --build
+(Atenție: Aceasta șterge toate datele adăugate manual și re-inițializează baza de date cu datele din scripturi).
