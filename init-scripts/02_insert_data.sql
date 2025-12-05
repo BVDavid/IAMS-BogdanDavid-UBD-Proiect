@@ -10,7 +10,7 @@ INSERT INTO locations (room_name, building, description) VALUES
 --- 2. USERS (CU PAROLE SI ROLURI) ---
 -- Adminul are toate drepturile. Userul simplu poate doar vizualiza.
 INSERT INTO users (first_name, last_name, email, password, role) VALUES
-                                                                     ('David', 'Bogdan', 'bogdandavid.work@gmail.com', 'admin123', 'admin'),
+                                                                     ('David', 'Bogdan', 'admin@test.com', 'admin123', 'admin'),
                                                                      ('User', 'Simplu', 'user@test.com', 'user123', 'user');
 
 --- 3. COMPONENTS ---
