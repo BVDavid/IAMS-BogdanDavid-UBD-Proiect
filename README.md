@@ -1,98 +1,105 @@
-# Proiect-UBD
-# 🧩 Cerințe pentru realizarea proiectului
+# 📦 IAMS - Inventory & Asset Management System
 
-## 📘 Descriere generală
+Proiect realizat pentru disciplina **Utilizarea Bazelor de Date (UBD)**.
 
-Fiecare student va realiza **un proiect individual**, care constă în dezvoltarea unei **aplicații funcționale** și redactarea unei **lucrări (referat)** asociate.  
-Scopul proiectului este de a aplica cunoștințele teoretice în dezvoltarea unei aplicații software reale, cu accent pe analiză, proiectare și implementare.
+**IAMS** este o aplicație web completă pentru gestionarea inventarului IT (calculatoare, laptopuri, servere) și a componentelor hardware asociate. Aplicația demonstrează utilizarea unei baze de date relaționale complexe (PostgreSQL), containerizare (Docker) și o interfață web intuitivă (Flask + Bootstrap).
 
 ---
 
-## 🧠 Alegerea temei
+## 🚀 Funcționalități Principale
 
-- Studentul va **alege o temă** din lista propusă sau poate propune **o temă proprie**.
-- Tema se va **înregistra la orele de proiect**, unde se va discuta și **precizarea detaliată a cerințelor**.
-- Alegerea temei trebuie validată de profesor.
+### 1. Gestiunea Echipamentelor (CRUD Complet)
+* **Adăugare:** Formular complex cu validări pentru IP și Serial Number unic.
+* **Vizualizare:** Dashboard cu listare tabelară și statusuri colorate.
+* **Ștergere:** Posibilitatea de a șterge echipamente (cu protecție `ON DELETE CASCADE` în baza de date).
 
----
+### 2. Componente Hardware (Relație Many-to-Many)
+* **Asociere:** Posibilitatea de a adăuga componente (CPU, RAM, HDD) pe un echipament specific din pagina de detalii.
+* **Dezasociere:** Ștergerea componentelor de pe un echipament.
 
-## 🧩 Conținutul proiectului
+### 3. Securitate și Roluri
+* **Admin:** Are drepturi depline (poate șterge orice, poate adăuga echipamente pentru alți utilizatori).
+* **User:** Poate vedea tot inventarul, dar poate modifica/șterge *doar* echipamentele proprii.
 
-Proiectul are două componente obligatorii:
-
-### (A) Aplicația funcțională
-Aplicația va fi complet funcțională și va respecta următoarele cerințe:
-- Va avea **o interfață grafică intuitivă** și ușor de utilizat;
-- Va fi implementată folosind tehnologiile și principiile predate la curs;
-- Va demonstra în mod clar **funcționalitatea cerută de tema aleasă**.
-
-### (B) Lucrarea (referatul)
-Lucrarea care însoțește aplicația trebuie să conțină:
-
-1. **Analiza și specificarea cerințelor**  
-   - Descrierea scopului aplicației și a funcționalităților principale.  
-   - Modelarea datelor prin **diagrame Entitate–Relație (ERD)**.
-
-2. **Proiectarea și implementarea aplicației**  
-   - Arhitectura generală a sistemului.  
-   - Tehnologii și limbaje folosite.  
-   - Capturi de ecran, exemple de interfață.
-
-3. **Prezentarea aplicației folosind diagrame**  
-   - Diagrame de flux, diagrame de clase, cazuri de utilizare etc.  
-   - Explicarea logicii de funcționare.
-
-4. **Descrierea și interpretarea rezultatelor obținute**  
-   - Exemple de scenarii de utilizare.  
-   - Observații și concluzii privind funcționarea aplicației.
+### 4. Funcții Avansate
+* **Filtrare:** Filtrarea echipamentelor în funcție de locația fizică (Room, Server Room, etc.).
+* **Paginare:** Componentele din dropdown sunt paginate pentru performanță.
+* **Validare:** Protecție backend și frontend împotriva datelor invalide.
 
 ---
 
-## 📊 Punctarea proiectului (maxim 10 puncte)
+## 🛠️ Tehnologii Utilizate
 
-| Criteriu | Punctaj maxim | Descriere |
-|-----------|----------------|------------|
-| 🧩 **Proiectarea bazei de date** | **2p** | Modelarea corectă a bazei de date, definirea entităților și relațiilor conform cerințelor aplicației. |
-| 📘 **Documentația teoretică** | **3p** | Prezentarea tehnologiilor utilizate, rolul acestora în implementare, motivarea alegerilor făcute, descrierea funcționalităților aplicației și modul de implementare. |
-| 💻 **Prezentarea aplicației** | **3p** | Demonstrarea funcționalităților în cadrul susținerii publice; se vor prezenta rapoarte, teste efectuate și grafice relevante. |
-| 🗣️ **Modul de prezentare și răspunsurile la întrebări** | **2p** | Claritatea prezentării, capacitatea de a explica deciziile tehnice și de a răspunde corect la întrebările adresate. |
-
-> 🔹 **Total: 10 puncte**
+* **Docker & Docker Compose:** Pentru containerizare și orchestrarea serviciilor.
+* **PostgreSQL 15:** Baza de date relațională.
+* **Python 3.11 + Flask:** Framework pentru Backend.
+* **Bootstrap 5:** Framework CSS pentru interfață.
+* **Psycopg2:** Driver pentru conectarea Python la PostgreSQL.
 
 ---
 
-## 🕓 Termene și prezentare
+## ⚙️ Instalare și Rulare
 
-- **Predarea proiectului:** în **ultima săptămână de școală din semestrul I** al anului universitar curent.
-- Proiectele se pot preda și **în sesiunea de restanțe**, dacă nu au fost finalizate până la termenul inițial.
-- **Consultațiile și discuțiile** privind proiectele se desfășoară la **orele de proiect afișate în orar**.
+Ai nevoie doar de **Docker** instalat.
 
----
+### 1. Clonează Repozitoriul
+Deschide un terminal și rulează:
+```bash
+git clone https://github.com/BVDavid/IAMS-BogdanDavid-UBD-Proiect.git
+cd IAMS-BogdanDavid-UBD-Proiect
+```
 
-## ⚠️ Condiții obligatorii
+### 2. Pornește Aplicația
+Rulează comanda de mai jos în terminal, în folderul proiectului:
 
-1. **Prezentarea progresului pe parcursul semestrului** este obligatorie.  
-   Lipsa prezentării evoluției lucrului la proiect duce la neacceptarea acestuia.
-2. **Aplicația trebuie să fie funcțională.**
-3. **Referatul trebuie să fie complet și corect redactat.**
+```bash
+docker compose up -d --build
+```
+Notă: Prima rulare poate dura 1-2 minute pentru descărcarea imaginilor.
 
----
+### 3. Accesează Aplicația
+Deschide browserul și intră pe: 👉
+```bash
+http://localhost:5000
+```
 
+### 🔐 Conturi pentru Testare
+Baza de date este populată automat cu acești utilizatori:
 
-## 💡 Recomandări
+| Rol | Email | Parola | Drepturi |
+| :--- | :--- | :--- | :--- |
+| **ADMIN** 👑 | `admin@test.com` | `admin123` | Acces Total. |
+| **USER** 👤 | `user@test.com` | `user123` | Doar pe asset-urile proprii. |
+### 📂 Structura Proiectului
 
-- Folosește Git și GitHub pentru a urmări evoluția proiectului.  
-  Creează commit-uri regulate și scrie mesaje descriptive.
-- Poți folosi diagrame realizate cu instrumente precum **draw.io**, **Lucidchart**, **Figma**, etc.
-- Testează aplicația înainte de predare și documentează eventualele limitări cunoscute.
+```bash
+iams-project/
+├── docker-compose.yml       # Configurare Servicii (DB + App)
+├── Dockerfile               # Configurare Imagine Python
+├── requirements.txt         # Dependențe (Flask, psycopg2)
+├── init-scripts/            # Scripturi SQL rulare automată
+│   ├── 01_create_tables.sql # Schema Bazei de Date (DDL)
+│   └── 02_insert_data.sql   # Date Inițiale (DML)
+└── app/
+    ├── app.py               # Codul sursă Backend
+    └── templates/           # Interfața Grafică (HTML)
+        ├── login.html
+        ├── assets.html
+        ├── add_asset.html
+        └── asset_detail.html
+```
+### ❓ Troubleshooting
+### Question:
+   Primesc eroare "Internal Server Error" sau baza de date e goală. 
+### Answer:
+   Uneori Docker păstrează volumele vechi. Resetează totul cu comanda:
 
----
+```bash
+docker compose down -v
+docker compose up -d --build
+```
 
-## ✅ Ce se predă la final
-
-La finalul semestrului, studentul va preda:
-1. 🔹 Codul sursă complet al aplicației (în repository-ul GitHub);
-2. 🔹 Documentația (referatul);
-3. 🔹 O prezentare scurtă a proiectului.
-
----
+### Question:
+   Nu mă pot conecta la localhost:5000. 
+### Answer:
+   Verifică dacă containerul rulează folosind docker compose ps. Dacă nu, verifică erorile cu docker compose logs backend.
