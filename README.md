@@ -68,7 +68,7 @@ Baza de date este populată automat cu acești utilizatori:
 
 | Rol | Email | Parola | Drepturi |
 | :--- | :--- | :--- | :--- |
-| **ADMIN** 👑 | `bogdandavid.work@gmail.com` | `admin123` | Acces Total. |
+| **ADMIN** 👑 | `admin@test.com` | `admin123` | Acces Total. |
 | **USER** 👤 | `user@test.com` | `user123` | Doar pe asset-urile proprii. |
 ### 📂 Structura Proiectului
 
